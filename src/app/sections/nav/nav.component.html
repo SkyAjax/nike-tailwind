@@ -1,0 +1,14 @@
+<header class="padding-x py-8 absolute z-10 w-full">
+  <nav class="flex justify-between items-center max-container">
+    <a href="/"><app-icon [iconName]="'header-logo'" [width]="130" [height]="29" ></app-icon></a>
+    <ul class="flex-1 flex justify-center items-center gap-16 max-lg:hidden">
+      @for (link of navLinks; track $index) {
+        <li><a class="font-montserrat leading-normal text-lg text-slate-gray" href="{{link.href}}">{{link.label}}</a></li>
+      }
+    </ul>
+    <div class="lg:hidden">
+      <app-icon [height]="25" [width]="25" [iconName]="'hamburger'"></app-icon>
+
+    </div>
+  </nav>
+</header>

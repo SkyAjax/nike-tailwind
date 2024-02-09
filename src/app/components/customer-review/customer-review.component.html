@@ -1,0 +1,9 @@
+<div class="flex justify-center items-center flex-col">
+  <img [src]="imgLink" alt="customer" class="rounded-full object-cover w-[120px] h-[120px]" />
+  <p class="mt-6 max-w-sm text-center info-text">{{review.feedback}}</p>
+  <div class="mt-3 flex justify-center items-center gap-2.5">
+    <app-icon class="object-contain m-0" [iconName]="'star'" [height]="24" [width]="24"></app-icon>
+    <p class="text-xl font-montserrat text-slate-gray">({{review.rating}})</p>
+  </div>
+    <h3 class="mt-1 font-palanquin text-3xl text-center font-bold">{{review.customerName}}</h3>
+</div>
