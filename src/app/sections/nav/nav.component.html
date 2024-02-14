@@ -6,9 +6,23 @@
         <li><a class="font-montserrat leading-normal text-lg text-slate-gray" href="{{link.href}}">{{link.label}}</a></li>
       }
     </ul>
-    <div class="lg:hidden">
-      <app-icon [height]="25" [width]="25" [iconName]="'hamburger'"></app-icon>
-
+    <div class="lg:hidden" *ngIf="!isOpened else close" (click)="openMobileNav()">
+        <app-icon [height]="25" [width]="25" [iconName]="'hamburger'"></app-icon>
     </div>
+
+    <ng-template #close >
+      <div @myInsertRemoveTrigger class="absolute inset-0 min-h-svh bg-white z-10" (click)="openMobileNav()">
+        <div class="flex flex-row justify-end padding-x py-8">
+          <app-icon [height]="30" [width]="30" [iconName]="'close'"></app-icon>
+        </div>
+        <ul class="flex flex-col items-start bg-white px-10 list-none">
+          @for (link of navLinks; track $index) {
+            <li class="py-5"><a class="font-montserrat leading-normal text-lg text-slate-gray" href="{{link.href}}">{{link.label}}</a></li>
+          }
+        </ul>
+      </div>
+    </ng-template>
+
+
   </nav>
 </header>
